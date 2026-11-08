@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: sudip-portfolio
+    env: node
+    plan: free
+    region: singapore
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    autoDeploy: true
+    healthCheckPath: /api/profile
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: APP_URL
+        value: https://www.sudipbhandari5.com.np
+      - key: ADMIN_EMAIL
+        value: bhandarysudip5@gmail.com
+      - key: ADMIN_INITIAL_PASSWORD
+        generateValue: true
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: DATABASE_URL
+        sync: false
+      - key: EMAIL_PROVIDER
+        value: ""
+      - key: RESEND_FROM_EMAIL
+        value: notifications@sudipbhandari5.com.np
